@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D-принтерная мастерская в Берлине - Бизнес-план</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #fafafa;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #007AFF;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            color: #007AFF;
+            background: rgba(0, 122, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 0 25px;
+            margin-top: 70px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 25px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content p {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            margin-bottom: 35px;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Content Sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #007AFF;
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Financial Tables */
+        .financial-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .financial-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .financial-table td {
+            padding: 15px 18px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .financial-table tr:hover {
+            background: rgba(102, 126, 234, 0.03);
+        }
+
+        .financial-table .amount {
+            font-weight: 600;
+            color: #007AFF;
+        }
+
+        /* Interactive Elements */
+        .accordion {
+            margin-bottom: 20px;
+        }
+
+        .accordion-header {
+            background: #f8f9fa;
+            padding: 20px;
+            cursor: pointer;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header:hover {
+            background: rgba(102, 126, 234, 0.05);
+            border-color: #007AFF;
+        }
+
+        .accordion-content {
+            padding: 25px;
+            background: white;
+            border-radius: 0 0 12px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: none;
+            display: none;
+        }
+
+        .accordion-content.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Progress Indicators */
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 8px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Lists */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+        }
+
+        /* Dark sections */
+        .dark-section {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .dark-section .section-title::after {
+            background: #007AFF;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">3D Workshop Berlin</a>
+            <ul class="nav-links">
+                <li><a href="#overview">Обзор</a></li>
+                <li><a href="#equipment">Оборудование</a></li>
+                <li><a href="#financials">Финансы</a></li>
+                <li><a href="#marketing">Маркетинг</a></li>
+                <li><a href="#roadmap">Развитие</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>3D-принтерная мастерская</h1>
+            <p>Комплексный бизнес-план высокотехнологичной мастерской в Берлине с лазерной резкой и полным циклом производства</p>
+            <a href="#overview" class="cta-button">Изучить план</a>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title">Обзор проекта</h2>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3>🎯 Концепция</h3>
+                    <p>Создание современной 3D-принтерной мастерской в Берлине с интеграцией лазерной резки/гравировки. Специализация на обслуживании местного бизнеса: автосервисы, рекламные агентства, ювелирное производство.</p>
+                    
+                    <div class="feature-list">
+                        <ul>
+                            <li>Площадь: 30 м²</li>
+                            <li>Технологии: FDM + SLA + лазерная резка</li>
+                            <li>Целевая аудитория: B2B клиенты</li>
+                            <li>Масштабирование: до 100+ принтеров</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>💰 Ключевые показатели</h3>
+                    <div class="financial-highlights">
+                        <div style="display: flex; justify-content: space-between; margin: 15px 0;">
+                            <span>Стартовые инвестиции:</span>
+                            <span class="amount">€42,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin: 15px 0;">
+                            <span>Выручка год 1:</span>
+                            <span class="amount">€156,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin: 15px 0;">
+                            <span>Прибыль год 1:</span>
+                            <span class="amount">€31,200</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin: 15px 0;">
+                            <span>ROI:</span>
+                            <span class="amount">74%</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin: 15px 0;">
+                            <span>Окупаемость:</span>
+                            <span class="amount">14 месяцев</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section id="equipment" class="section">
+        <div class="container">
+            <h2 class="section-title">Оборудование и технологии</h2>
+            
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>🖨️ 3D-принтеры (€24,000)</span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th>Принтер</th>
+                                <th>Технология</th>
+                                <th>Цена</th>
+                                <th>Применение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bambu Lab H2D</td>
+                                <td>FDM</td>
+                                <td class="amount">€8,000</td>
+                                <td>Крупные детали, прототипы</td>
+                            </tr>
+                            <tr>
+                                <td>Bambu Lab X1 Carbon</td>
+                                <td>FDM</td>
+                                <td class="amount">€8,000</td>
+                                <td>Высокоточная печать</td>
+                            </tr>
+                            <tr>
+                                <td>ANYCUBIC Photon M3 Max</td>
+                                <td>SLA</td>
+                                <td class="amount">€8,000</td>
+                                <td>Ювелирка, детализированные модели</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p><strong>Производительность:</strong></p>
+                    <ul class="feature-list">
+                        <li>При 50% загрузке: €13,000/месяц выручки</li>
+                        <li>Время работы: 12-16 часов в день</li>
+                        <li>Себестоимость печати: 30-40% от цены</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>⚡ Лазерное оборудование (€2,000)</span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="grid grid-2">
+                        <div>
+                            <h4>Лазерный гравер/резак</h4>
+                            <ul class="feature-list">
+                                <li>Мощность: 10-20W</li>
+                                <li>Рабочая область: 400x400 мм</li>
+                                <li>Материалы: дерево, акрил, кожа, ткань</li>
+                                <li>Точность: 0.1 мм</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Дополнительные услуги</h4>
+                            <ul class="feature-list">
+                                <li>Гравировка логотипов</li>
+                                <li>Резка рекламных материалов</li>
+                                <li>Персонализация изделий</li>
+                                <li>Прототипирование корпусов</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>🔧 Пост-обработка (€3,000)</span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="grid grid-3">
+                        <div>
+                            <h4>Механическая обработка</h4>
+                            <ul class="feature-list">
+                                <li>Шлифовальные станки</li>
+                                <li>Полировочное оборудование</li>
+                                <li>Ручной инструмент</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Покраска</h4>
+                            <ul class="feature-list">
+                                <li>Аэрограф</li>
+                                <li>Покрасочная камера</li>
+                                <li>Сушильная камера</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Химическая обработка</h4>
+                            <ul class="feature-list">
+                                <li>УЗ-ванны для очистки</li>
+                                <li>UV-камера для отверждения</li>
+                                <li>Вентиляция</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Section -->
+    <section id="financials" class="section dark-section">
+        <div class="container">
+            <h2 class="section-title">Финансовые прогнозы</h2>
+            
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>💸 Стартовые инвестиции (€42,000)</span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th>Категория</th>
+                                <th>Сумма</th>
+                                <th>Доля</th>
+                                <th>Примечания</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3D-принтеры</td>
+                                <td class="amount">€24,000</td>
+                                <td>57%</td>
+                                <td>Bambu Lab + ANYCUBIC</td>
+                            </tr>
+                            <tr>
+                                <td>Лазерное оборудование</td>
+                                <td class="amount">€2,000</td>
+                                <td>5%</td>
+                                <td>Гравер/резак 10-20W</td>
+                            </tr>
+                            <tr>
+                                <td>Пост-обработка</td>
+                                <td class="amount">€3,000</td>
+                                <td>7%</td>
+                                <td>Шлифовка, покраска</td>
+                            </tr>
+                            <tr>
+                                <td>Материалы и расходники</td>
+                                <td class="amount">€8,000</td>
+                                <td>19%</td>
+                                <td>Филаменты, смолы, расходники</td>
+                            </tr>
+                            <tr>
+                                <td>Аренда и депозит</td>
+                                <td class="amount">€3,000</td>
+                                <td>7%</td>
+                                <td>30 м², первый месяц + депозит</td>
+                            </tr>
+                            <tr>
+                                <td>Прочие расходы</td>
+                                <td class="amount">€2,000</td>
+                                <td>5%</td>
+                                <td>Мебель, инструменты, регистрация</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>📊 Прогноз доходов</span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th>Год</th>
+                                <th>Выручка</th>
+                                <th>Операционные расходы</th>
+                                <th>Чистая прибыль</th>
+                                <th>ROI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="amount">€156,000</td>
+                                <td>€124,800</td>
+                                <td class="amount">€31,200</td>
+                                <td class="amount">74%</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="amount">€234,000</td>
+                                <td>€163,800</td>
+                                <td class="amount">€70,200</td>
+                                <td class="amount">167%</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="amount">€390,000</td>
+                                <td>€234,000</td>
+                                <td class="amount">€156,000</td>
+                                <td class="amount">371%</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td class="amount">€585,000</td>
+                                <td>€292,500</td>
+                                <td class="amount">€292,500</td>
+                                <td class="amount">696%</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td class="amount">€780,000</td>
+                                <td>€390,000</td>
+                                <td class="amount">€390,000</td>
+                                <td class="amount">929%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div style="margin-top: 30px;">
+                        <h4>Ключевые факторы роста:</h4>
+                        <ul class="feature-list">
+                            <li>Увеличение загрузки с 50% до 70%</li>
+                            <li>Расширение парка до 100+ принтеров</li>
+                            <li>Добавление новых услуг (металлическая печать)</li>
+                            <li>Автоматизация производственных процессов</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>💰 Структура доходов</span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="grid grid-3">
+                        <div class="card">
+                            <h4>3D-печать (70%)</h4>
+                            <ul class="feature-list">
+                                <li>FDM печать: €5-15/час</li>
+                                <li>SLA печать: €8-20/час</li>
+                                <li>Пост-обработка: +30-50%</li>
+                                <li>Дизайн/моделирование: €50-80/час</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h4>Лазерные услуги (20%)</h4>
+                            <ul class="feature-list">
+                                <li>Гравировка: €2-8/мин</li>
+                                <li>Резка: €1-5/мин</li>
+                                <li>Персонализация: €10-50/изделие</li>
+                                <li>Прототипирование: €20-100/проект</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h4>Дополнительные услуги (10%)</h4>
+                            <ul class="feature-list">
+                                <li>Консультации: €80-120/час</li>
+                                <li>Обучение: €500-2000/курс</li>
+                                <li>Аренда оборудования: €50-200/день</li>
+                                <li>Продажа материалов: +15-25% наценка</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketing Section -->
+    <section id="marketing" class="section">
+        <div class="container">
+            <h2 class="section-title">Маркетинговая стратегия</h2>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3>🎯 Целевые сегменты</h3>
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Автосервисы (30%)</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul class="feature-list">
+                                <li>Запчасти для ретро-автомобилей</li>
+                                <li>Пластиковые крепления и клипсы</li>
+                                <li>Прототипы деталей интерьера</li>
+                                <li>Инструменты и приспособления</li>
+                            </ul>
+                            <p><strong>Средний чек:</strong> €50-300</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Рекламные агентства (25%)</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul class="feature-list">
+                                <li>Макеты и прототипы продуктов</li>
+                                <li>Сувенирная продукция</li>
+                                <li>Выставочные стенды</li>
+                                <li>Брендированные изделия</li>
+                            </ul>
+                            <p><strong>Средний чек:</strong> €100-500</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Ювелирное производство (25%)</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul class="feature-list">
+                                <li>Мастер-модели для литья</li>
+                                <li>Прототипы украшений</li>
+                                <li>Восковые модели</li>
+                                <li>Нестандартные оправы</li>
+                            </ul>
+                            <p><strong>Средний чек:</strong> €30-200</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Промышленность (20%)</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul class="feature-list">
+                                <li>Прототипы изделий</li>
+                                <li>Мелкосерийное производство</li>
+                                <li>Запчасти для оборудования</li>
+                                <li>Инструменты и оснастка</li>
+                            </ul>
+                            <p><strong>Средний чек:</strong> €200-1000</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>📢 Каналы продвижения</h3>
+                    
+                    <h4>Цифровой маркетинг (€800/месяц)</h4>
+                    <ul class="feature-list">
+                        <li>Google Ads: €400/месяц</li>
+                        <li>Facebook/Instagram: €200/месяц</li>
+                        <li>SEO-оптимизация: €200/месяц</li>
+                    </ul>
+
+                    <h4>B2B продажи (€600/месяц)</h4>
+                    <ul class="feature-list">
+                        <li>Прямые продажи</li>
+                        <li>Участие в выставках</li>
+                        <li>Партнерские программы</li>
+                        <li>Реферальная система</li>
+                    </ul>
+
+                    <h4>Контент-маркетинг (€400/месяц)</h4>
+                    <ul class="feature-list">
+                        <li>YouTube канал с обучающими видео</li>
+                        <li>Кейсы и портфолио</li>
+                        <li>Блог о 3D-технологиях</li>
+                        <li>Социальные сети</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Roadmap -->
+    <section id="roadmap" class="section dark-section">
+        <div class="container">
+            <h2 class="section-title">План развития</h2>
+            
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>🚀 Фаза 1: Запуск (Месяцы 1-6)</span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="grid grid-2">
+                        <div>
+                            <h4>Milestones</h4>
+                            <ul class="feature-list">
+                                <li>Регистрация бизнеса и получение разрешений</li>
+                                <li>Аренда помещения 30 м²</li>
+                                <li>Покупка и установка оборудования</li>
+                                <li>Запуск сайта с онлайн-калькулятором</li>
+                                <li>Первые 20 клиентов</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>KPI</h4>
+                            <ul class="feature-list">
+                                <li>Выручка: €13,000/месяц</li>
+                                <li>Загрузка принтеров: 40-50%</li>
+                                <li>Клиенты: 30-40 за период</li>
+                                <li>Средний чек: €120</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>📈 Фаза 2: Рост (Месяцы 7-18)</span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="grid grid-2">
+                        <div>
+                            <h4>Развитие</h4>
+                            <ul class="feature-list">
+                                <li>Добавление 2-3 новых принтеров</li>
+                                <li>Внедрение металлической печати</li>
+                                <li>Автоматизация приема заказов</li>
+                                <li>Расширение услуг пост-обработки</li>
+                                <li>Найм 1-2 сотрудников</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Финансы</h4>
+                            <ul class="feature-list">
+                                <li>Выручка: €19,500/месяц</li>
+                                <li>Загрузка: 60-70%</li>
+                                <li>Инвестиции: €30,000</li>
+                                <li>ROI: 150-200%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>🏭 Фаза 3: Масштабирование (Годы 2-3)</span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="grid grid-2">
+                        <div>
+                            <h4>Expansion</h4>
+                            <ul class="feature-list">
+                                <li>Увеличение площади до 100-150 м²</li>
+                                <li>10-15 принтеров различных типов</li>
+                                <li>Автоматизация производства</li>
+                                <li>R&D отдел</li>
+                                <li>Команда 5-8 человек</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Показатели</h4>
+                            <ul class="feature-list">
+                                <li>Выручка: €32,500/месяц</li>
+                                <li>Загрузка: 70%</li>
+                                <li>Рентабельность: 25-30%</li>
+                                <li>Доля рынка в Берлине: 3-5%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>🌟 Фаза 4: Лидерство (Годы 4-5)</span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <div class="grid grid-2">
+                        <div>
+                            <h4>Цели</h4>
+                            <ul class="feature-list">
+                                <li>50-100+ принтеров</li>
+                                <li>Полная автоматизация</li>
+                                <li>Несколько площадок</li>
+                                <li>Франчайзинг</li>
+                                <li>Выход на международный рынок</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Финансовые цели</h4>
+                            <ul class="feature-list">
+                                <li>Выручка: €65,000/месяц</li>
+                                <li>Прибыль: €32,500/месяц</li>
+                                <li>Стоимость бизнеса: €2-5M</li>
+                                <li>ROI: 900%+</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Automation -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Автоматизация и AI</h2>
+            
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3>🤖 Автоматизация заказов</h3>
+                    <ul class="feature-list">
+                        <li>Онлайн-калькулятор печати</li>
+                        <li>Автоматическое ценообразование</li>
+                        <li>CRM интеграция</li>
+                        <li>Планирование производства</li>
+                    </ul>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <p><small>ROI: 6-12 месяцев</small></p>
+                </div>
+
+                <div class="card">
+                    <h3>📡 Мониторинг печати</h3>
+                    <ul class="feature-list">
+                        <li>Удаленный контроль принтеров</li>
+                        <li>Предсказание отказов</li>
+                        <li>Автоматические уведомления</li>
+                        <li>Аналитика производительности</li>
+                    </ul>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%"></div>
+                    </div>
+                    <p><small>Экономия: 30% времени на мониторинг</small></p>
+                </div>
+
+                <div class="card">
+                    <h3>🔬 Quality Control</h3>
+                    <ul class="feature-list">
+                        <li>AI контроль качества</li>
+                        <li>Автоматическая сортировка</li>
+                        <li>Детекция дефектов</li>
+                        <li>Статистика брака</li>
+                    </ul>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%"></div>
+                    </div>
+                    <p><small>Сокращение брака: 50-70%</small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Analysis -->
+    <section class="section dark-section">
+        <div class="container">
+            <h2 class="section-title">Анализ рисков</h2>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3>⚠️ Основные риски</h3>
+                    
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Технические риски (Средний)</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul class="feature-list">
+                                <li>Поломка оборудования</li>
+                                <li>Проблемы с качеством печати</li>
+                                <li>Устаревание технологий</li>
+                            </ul>
+                            <p><strong>Митигация:</strong> Сервисные контракты, резервное оборудование, постоянное обновление</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Рыночные риски (Высокий)</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul class="feature-list">
+                                <li>Усиление конкуренции</li>
+                                <li>Снижение спроса</li>
+                                <li>Ценовые войны</li>
+                            </ul>
+                            <p><strong>Митигация:</strong> Уникальное позиционирование, диверсификация услуг, построение барьеров входа</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Финансовые риски (Низкий)</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul class="feature-list">
+                                <li>Недостаток оборотных средств</li>
+                                <li>Задержки платежей</li>
+                                <li>Превышение бюджета</li>
+                            </ul>
+                            <p><strong>Митигация:</strong> Резервный фонд, предоплаты, строгий финансовый контроль</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🛡️ Страхование и защита</h3>
+                    
+                    <h4>Страховые полисы</h4>
+                    <ul class="feature-list">
+                        <li>Страхование оборудования: €200/месяц</li>
+                        <li>Ответственность: €150/месяц</li>
+                        <li>Прерывание бизнеса: €100/месяц</li>
+                    </ul>
+
+                    <h4>Правовая защита</h4>
+                    <ul class="feature-list">
+                        <li>Патентная защита</li>
+                        <li>Договоры с клиентами</li>
+                        <li>NDA с сотрудниками</li>
+                        <li>Compliance с EU законами</li>
+                    </ul>
+
+                    <h4>Операционная безопасность</h4>
+                    <ul class="feature-list">
+                        <li>Резервное копирование данных</li>
+                        <li>Системы пожаротушения</li>
+                        <li>Контроль доступа</li>
+                        <li>Протоколы безопасности</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 3D Workshop Berlin. Бизнес-план разработан 14 июля 2025 года.</p>
+            <p>Проект создан с использованием передовых технологий планирования и анализа.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const arrow = element.querySelector('span:last-child');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                arrow.textContent = '▼';
+            } else {
+                content.classList.add('active');
+                arrow.textContent = '▲';
+            }
+        }
+
+        // Progressive enhancement - add smooth animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add intersection observer for animations
+            const cards = document.querySelectorAll('.card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'all 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Animate progress bars
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
