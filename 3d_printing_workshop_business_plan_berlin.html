@@ -44,6 +44,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 25px;
+            text-align: left;
         }
 
         .logo {
@@ -98,6 +99,9 @@
             margin-bottom: 35px;
             opacity: 0.9;
             max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
         }
 
         .cta-button {
@@ -159,6 +163,10 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: left;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -177,14 +185,17 @@
         .grid {
             display: grid;
             gap: 30px;
+            align-items: start;
         }
 
         .grid-2 {
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            justify-items: stretch;
         }
 
         .grid-3 {
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            justify-items: stretch;
         }
 
         /* Financial Tables */
@@ -205,11 +216,22 @@
             text-align: left;
             font-weight: 600;
             font-size: 1.1rem;
+            vertical-align: middle;
         }
 
         .financial-table td {
             padding: 15px 18px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .financial-table td:last-child {
+            text-align: right;
+        }
+
+        .financial-table th:last-child {
+            text-align: right;
         }
 
         .financial-table tr:hover {
@@ -315,14 +337,33 @@
 
             .grid-2, .grid-3 {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .hero-content h1 {
                 font-size: 2.5rem;
+                text-align: center;
             }
 
             .section {
                 padding: 50px 0;
+            }
+
+            .financial-table {
+                font-size: 0.9rem;
+            }
+
+            .financial-table th, .financial-table td {
+                padding: 12px 8px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .card {
+                padding: 25px;
+                margin-bottom: 20px;
             }
         }
 
@@ -387,7 +428,7 @@
         }
 
         .dark-section .financial-table .amount {
-            color: #00d4ff;
+            color: #4db8ff;
             font-weight: 600;
         }
 
@@ -407,6 +448,7 @@
         <div class="nav-container">
             <a href="#" class="logo">3D Workshop Berlin</a>
             <ul class="nav-links">
+                <li><a href="#motivation">Суть проекта</a></li>
                 <li><a href="#overview">Обзор</a></li>
                 <li><a href="#equipment">Оборудование</a></li>
                 <li><a href="#financials">Финансы</a></li>
@@ -421,7 +463,83 @@
         <div class="hero-content">
             <h1>3D-принтерная мастерская</h1>
             <p>Комплексный бизнес-план высокотехнологичной мастерской в Берлине<br>с лазерной резкой и полным циклом производства</p>
-            <a href="#overview" class="cta-button">Изучить план</a>
+            <a href="#motivation" class="cta-button">Изучить план</a>
+        </div>
+    </section>
+
+    <!-- Motivation Summary -->
+    <section id="motivation" class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="container">
+            <h2 class="section-title" style="color: white; margin-bottom: 40px;">💎 Почему это сработает</h2>
+            
+            <div class="grid grid-2" style="gap: 40px; margin-bottom: 50px;">
+                <div class="card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); color: white;">
+                    <h3 style="color: #4db8ff; font-size: 2.2rem; margin-bottom: 25px;">🚀 Финансовая привлекательность</h3>
+                    <div style="margin-bottom: 20px;">
+                        <span style="font-size: 2.5rem; font-weight: 800; color: #4db8ff;">€50,000</span>
+                        <p style="margin: 5px 0; opacity: 0.9;">Стартовые инвестиции</p>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <span style="font-size: 2.5rem; font-weight: 800; color: #4db8ff;">€750,000</span>
+                        <p style="margin: 5px 0; opacity: 0.9;">Выручка к 5-му году</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <span style="font-size: 2rem; font-weight: 700; color: #4db8ff;">750% ROI</span>
+                        <p style="margin: 5px 0; opacity: 0.9;">Возврат инвестиций за 5 лет</p>
+                    </div>
+                </div>
+
+                <div class="card" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); color: white;">
+                    <h3 style="color: #4db8ff; font-size: 2.2rem; margin-bottom: 25px;">⚡ Уникальная модель</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin: 15px 0; padding-left: 30px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4db8ff; font-weight: bold;">✓</span>
+                            <strong>3D + Лазер</strong> - единственная в Берлине комбинация
+                        </li>
+                        <li style="margin: 15px 0; padding-left: 30px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4db8ff; font-weight: bold;">✓</span>
+                            <strong>16-цветная печать</strong> - профессиональное качество
+                        </li>
+                        <li style="margin: 15px 0; padding-left: 30px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4db8ff; font-weight: bold;">✓</span>
+                            <strong>B2B фокус</strong> - средний чек €50-1000
+                        </li>
+                        <li style="margin: 15px 0; padding-left: 30px; position: relative;">
+                            <span style="position: absolute; left: 0; color: #4db8ff; font-weight: bold;">✓</span>
+                            <strong>Масштабирование</strong> - до 100+ станков
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-3" style="gap: 30px; margin-bottom: 40px;">
+                <div style="text-align: center; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">📈</div>
+                    <h4 style="color: #4db8ff; margin-bottom: 10px;">Растущий рынок</h4>
+                    <p style="opacity: 0.9; margin: 0;">+15% рост рынка 3D-печати ежегодно</p>
+                </div>
+                
+                <div style="text-align: center; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">🏙️</div>
+                    <h4 style="color: #4db8ff; margin-bottom: 10px;">Берлин - тех хаб</h4>
+                    <p style="opacity: 0.9; margin: 0;">Высокая концентрация целевых клиентов</p>
+                </div>
+                
+                <div style="text-align: center; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">✅</div>
+                    <h4 style="color: #4db8ff; margin-bottom: 10px;">Готов к запуску</h4>
+                    <p style="opacity: 0.9; margin: 0;">Детальный план и проработка</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 20px; border: 2px solid rgba(255, 255, 255, 0.3);">
+                <h3 style="color: #4db8ff; font-size: 2rem; margin-bottom: 20px;">🔥 Ключевой фактор успеха</h3>
+                <p style="font-size: 1.3rem; margin-bottom: 25px; opacity: 0.95;">
+                    <strong>Фокус на прибыльность, а не оборот.</strong><br>
+                    Консервативные прогнозы с реальными сроками окупаемости делают проект надежной инвестицией в высокотехнологичную нишу.
+                </p>
+                <a href="#overview" style="display: inline-block; background: rgba(255, 255, 255, 0.2); color: white; text-decoration: none; padding: 15px 35px; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3);">Изучить детали →</a>
+            </div>
         </div>
     </section>
 
@@ -450,19 +568,28 @@
                     <div class="financial-highlights">
                         <div style="display: flex; justify-content: space-between; margin: 15px 0;">
                             <span>Стартовые инвестиции:</span>
-                            <span class="amount">€65,000</span>
+                            <span class="amount">€50,000</span>
                         </div>
-                        <div style="display: flex; justify-content: space-between; margin: 15px 0;">
-                            <span>Выручка годы 1-2:</span>
-                            <span class="amount">€0 (раскрутка, покупка новых принтеров, переезд)</span>
+                        <div style="margin: 15px 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <span>Выручка годы 1-2:</span>
+                                <span class="amount">€0</span>
+                            </div>
+                            <div style="font-size: 0.9em; color: #666; margin-top: 5px; text-align: right;">
+                                (раскрутка, покупка новых принтеров, переезд)
+                            </div>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin: 15px 0;">
                             <span>Выручка год 3:</span>
-                            <span class="amount">€120,000</span>
+                            <span class="amount">€250,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin: 15px 0;">
+                            <span>Выручка год 4:</span>
+                            <span class="amount">€500,000</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin: 15px 0;">
                             <span>Выручка год 5:</span>
-                            <span class="amount">€600,000+</span>
+                            <span class="amount">€750,000</span>
                         </div>
                     </div>
                 </div>
@@ -477,7 +604,7 @@
             
             <div class="accordion">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>🖨️ 3D-принтеры (€3,347)</span>
+                    <span>🖨️ 3D-принтеры (€7,200)</span>
                     <span>▼</span>
                 </div>
                 <div class="accordion-content">
@@ -492,32 +619,64 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Bambu Lab X1C + AMS 2 Pro</td>
-                                <td>FDM с 16-цветной печатью</td>
-                                <td class="amount">€1,249</td>
-                                <td>Многоцветная печать, высокая точность</td>
+                                <td><strong>Bambu Lab X1C (x3)</strong><br>
+                                    • Размер печати: 256×256×256мм<br>
+                                    • Скорость: до 500мм/с<br>
+                                    • Точность: ±0.1мм<br>
+                                    • Автокалибровка и LiDAR<br>
+                                    • Углеродное волокно совместимо</td>
+                                <td><strong>FDM премиум класса</strong><br>
+                                    • Закрытая камера<br>
+                                    • Активное подавление вибраций<br>
+                                    • AI-контроль дефектов<br>
+                                    • Удаленный мониторинг<br>
+                                    • 300°C хотенд</td>
+                                <td class="amount">€3,000</td>
+                                <td><strong>Профессиональное производство</strong><br>
+                                    • Серийная печать 24/7<br>
+                                    • Высокая точность деталей<br>
+                                    • Инженерные пластики<br>
+                                    • Быстрое прототипирование<br>
+                                    • Коммерческое качество</td>
                             </tr>
                             <tr>
-                                <td>ANYCUBIC Photon M3 Max (x2)</td>
-                                <td>SLA высокой точности</td>
-                                <td class="amount">€2,098</td>
-                                <td>Ювелирка, детализированные модели</td>
+                                <td><strong>AMS 2 Pro (x12 - 4 на принтер)</strong><br>
+                                    • 4 катушки на модуль<br>
+                                    • Автоматическая сушка<br>
+                                    • RFID распознавание<br>
+                                    • Герметичное хранение<br>
+                                    • Буферная система подачи</td>
+                                <td><strong>16-цветная автоматическая система</strong><br>
+                                    • Смена материалов за 10сек<br>
+                                    • Поддержка всех типов пластиков<br>
+                                    • Защита от влаги<br>
+                                    • Цепное подключение модулей<br>
+                                    • AI-управление подачей</td>
+                                <td class="amount">€4,200</td>
+                                <td><strong>Непрерывная многоцветная печать</strong><br>
+                                    • 16 цветов без остановок<br>
+                                    • Сложные градиенты<br>
+                                    • Смешанные материалы<br>
+                                    • Печать на выходные<br>
+                                    • Минимальные отходы</td>
                             </tr>
                         </tbody>
                     </table>
                     
                     <p><strong>Производительность:</strong></p>
                     <ul class="feature-list">
-                        <li>При 50% загрузке: €13,000/месяц выручки</li>
-                        <li>Время работы: 12-16 часов в день</li>
-                        <li>Себестоимость печати: 30-40% от цены</li>
+                        <li>3 принтера одновременно: 3x увеличение производительности</li>
+                        <li>16-цветная печать без остановок: €25-50/час за принтер</li>
+                        <li>При 50% загрузке: €25,000-40,000/месяц выручки</li>
+                        <li>Время работы: 18-24 часа в день (автоматическая смена материалов)</li>
+                        <li>Себестоимость печати: 25-35% от цены (экономия на масштабе)</li>
                     </ul>
                 </div>
             </div>
 
             <div class="accordion">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>⚡ Лазерное оборудование (€2,000)</span>
+                    <span>⚡ Лазерное оборудование (€2,100)</span>
                     <span>▼</span>
                 </div>
                 <div class="accordion-content">
@@ -533,10 +692,10 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Лазерный гравер 20W</td>
-                                <td>400x400мм, точность 0.1мм</td>
-                                <td class="amount">€1,200</td>
-                                <td>Гравировка дерева, акрила</td>
+                                <td>OMTech AF2028-60 (60W CO2)</td>
+                                <td>20"x28" рабочая область, высокая точность</td>
+                                <td class="amount">€2,100</td>
+                                <td>Резка дерева, акрила, гравировка металла</td>
                             </tr>
                             <tr>
                                 <td>Поворотная ось (Rotary)</td>
@@ -591,7 +750,7 @@
 
             <div class="accordion">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>🔧 Пост-обработка (€4,370)</span>
+                    <span>🔧 Пост-обработка (€5,000)</span>
                     <span>▼</span>
                 </div>
                 <div class="accordion-content">
@@ -778,14 +937,14 @@
                     <div style="margin-top: 30px; padding: 20px; background: rgba(40, 167, 69, 0.1); border-radius: 8px;">
                         <h4>📊 Общая стоимость пост-обработки:</h4>
                         <ul class="feature-list">
-                            <li>Механическая обработка: €760</li>
-                            <li>Оборудование для покраски: €1,270</li>
-                            <li>Химическая обработка: €2,340</li>
-                            <li><strong>Общая стоимость: €4,370</strong></li>
+                            <li>Ультразвуковая очистка и UV-отверждение: €1,200</li>
+                            <li>Профессиональные инструменты отделки: €1,800</li>
+                            <li>Система вентиляции и безопасности: €2,000</li>
+                            <li><strong>Общая стоимость: €5,000</strong></li>
                         </ul>
                         
                         <div style="margin-top: 15px; padding: 10px; background: rgba(255, 193, 7, 0.2); border-radius: 4px;">
-                            <small><strong>Примечание:</strong> Цены указаны на профессиональное оборудование высокого качества для коммерческого использования. Более детальная спецификация позволяет точнее планировать бюджет.</small>
+                            <small><strong>Примечание:</strong> Расширенный набор профессионального оборудования для высококачественной пост-обработки в рамках бюджета €50,000.</small>
                         </div>
                     </div>
                 </div>
@@ -800,7 +959,7 @@
             
             <div class="accordion">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>💸 Стартовые инвестиции (€65,000)</span>
+                    <span>💸 Стартовые инвестиции (€50,000)</span>
                     <span>▼</span>
                 </div>
                 <div class="accordion-content">
@@ -815,58 +974,46 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>3D-принтеры</td>
-                                <td class="amount">€3,347</td>
-                                <td>5.1%</td>
-                                <td>1x Bambu X1C + AMS, 2x ANYCUBIC M3 Max</td>
+                                <td>3D-принтеры и AMS</td>
+                                <td class="amount">€7,200</td>
+                                <td>14.4%</td>
+                                <td>3x Bambu X1C + 12x AMS 2 Pro (4 на принтер)</td>
                             </tr>
                             <tr>
                                 <td>Лазерное оборудование</td>
-                                <td class="amount">€2,000</td>
-                                <td>3.1%</td>
-                                <td>20W гравер + аксессуары</td>
+                                <td class="amount">€2,100</td>
+                                <td>4.2%</td>
+                                <td>OMTech AF2028-60 (60W CO2)</td>
                             </tr>
                             <tr>
                                 <td>Пост-обработка</td>
-                                <td class="amount">€2,950</td>
-                                <td>4.5%</td>
-                                <td>Оборудование для отделки</td>
-                            </tr>
-                            <tr>
-                                <td>Филаменты и смолы</td>
-                                <td class="amount">€3,256</td>
-                                <td>5.0%</td>
-                                <td>Полный стартовый набор всех материалов</td>
-                            </tr>
-                            <tr>
-                                <td>Оборудование и инструменты</td>
-                                <td class="amount">€6,500</td>
+                                <td class="amount">€5,000</td>
                                 <td>10.0%</td>
-                                <td>Сушки, инструменты, мебель, безопасность</td>
+                                <td>Расширенное оборудование для профессиональной отделки</td>
                             </tr>
                             <tr>
-                                <td>Аренда и депозит</td>
-                                <td class="amount">€18,000</td>
-                                <td>27.7%</td>
-                                <td>30 м², 12 месяцев аренды + депозит</td>
+                                <td>Материалы и филаменты</td>
+                                <td class="amount">€3,000</td>
+                                <td>6.0%</td>
+                                <td>Стартовый набор материалов для 16-цветной печати</td>
                             </tr>
                             <tr>
-                                <td>Маркетинг и продвижение</td>
-                                <td class="amount">€12,000</td>
-                                <td>18.5%</td>
-                                <td>Первые 2 года активной раскрутки</td>
+                                <td>Помещение и установка</td>
+                                <td class="amount">€8,000</td>
+                                <td>16.0%</td>
+                                <td>30 м², депозит + 3 месяца аренды, установка</td>
                             </tr>
                             <tr>
-                                <td>Операционные расходы</td>
-                                <td class="amount">€12,000</td>
-                                <td>18.5%</td>
-                                <td>Коммунальные, страховка на 1 год</td>
+                                <td>Операционный капитал</td>
+                                <td class="amount">€15,000</td>
+                                <td>30.0%</td>
+                                <td>6 месяцев операционных расходов</td>
                             </tr>
                             <tr>
-                                <td>Резерв на непредвиденные</td>
-                                <td class="amount">€16,947</td>
-                                <td>26.1%</td>
-                                <td>Резерв на случай превышения бюджета</td>
+                                <td>Резерв безопасности</td>
+                                <td class="amount">€9,700</td>
+                                <td>19.4%</td>
+                                <td>Непредвиденные расходы и расширения</td>
                             </tr>
                         </tbody>
                     </table>
@@ -906,24 +1053,24 @@
                             </tr>
                             <tr>
                                 <td>3</td>
-                                <td class="amount">€120,000</td>
-                                <td>€80,000</td>
-                                <td class="amount">€40,000</td>
-                                <td class="amount">4%</td>
+                                <td class="amount">€250,000</td>
+                                <td>€150,000</td>
+                                <td class="amount">€100,000</td>
+                                <td class="amount">200%</td>
                             </tr>
                             <tr>
                                 <td>4</td>
-                                <td class="amount">€300,000</td>
-                                <td>€180,000</td>
-                                <td class="amount">€120,000</td>
-                                <td class="amount">119%</td>
+                                <td class="amount">€500,000</td>
+                                <td>€250,000</td>
+                                <td class="amount">€250,000</td>
+                                <td class="amount">500%</td>
                             </tr>
                             <tr>
                                 <td>5</td>
-                                <td class="amount">€600,000</td>
-                                <td>€300,000</td>
-                                <td class="amount">€300,000</td>
-                                <td class="amount">362%</td>
+                                <td class="amount">€750,000</td>
+                                <td>€375,000</td>
+                                <td class="amount">€375,000</td>
+                                <td class="amount">750%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -932,9 +1079,9 @@
                         <h4>🚀 Реалистичная модель развития:</h4>
                         <ul class="feature-list">
                             <li><strong>Годы 1-2:</strong> Полная раскрутка, изучение рынка, создание клиентской базы</li>
-                            <li><strong>Год 3:</strong> Первые серьезные доходы, €10,000/месяц к концу года</li>
-                            <li><strong>Год 4:</strong> Стабильный рост, €25,000/месяц, расширение оборудования</li>
-                            <li><strong>Год 5:</strong> Масштабирование, €50,000/месяц, возможность франшизы</li>
+                            <li><strong>Год 3:</strong> Первые серьезные доходы, €20,000/месяц к концу года</li>
+                            <li><strong>Год 4:</strong> Стабильный рост, €42,000/месяц, расширение оборудования</li>
+                            <li><strong>Год 5:</strong> Масштабирование, €62,500/месяц, возможность франшизы</li>
                             <li><strong>Ключевой фактор:</strong> Без зарплат в первые 2 года (самостоятельная работа)</li>
                         </ul>
                     </div>
@@ -949,17 +1096,17 @@
                 <div class="accordion-content">
                     <div class="grid grid-3">
                         <div class="card">
-                            <h4>3D-печать (70%)</h4>
+                            <h3>3D-печать (70%)</h3>
                             <ul class="feature-list">
-                                <li>FDM печать: €8-25/час</li>
-                                <li>SLA печать: €12-35/час</li>
-                                <li>Многоцветная печать: €15-40/час</li>
-                                <li>Пост-обработка: +40-60%</li>
-                                <li>Дизайн/моделирование: €60-100/час</li>
+                                <li>FDM печать: €10-30/час</li>
+                                <li>16-цветная печать: €20-50/час</li>
+                                <li>Премиум многоцветная: €35-80/час</li>
+                                <li>Быстрое прототипирование: €15-40/час</li>
+                                <li>Дизайн/моделирование: €60-120/час</li>
                             </ul>
                         </div>
                         <div class="card">
-                            <h4>Лазерные услуги (20%)</h4>
+                            <h3>Лазерные услуги (20%)</h3>
                             <ul class="feature-list">
                                 <li>Гравировка: €3-12/мин</li>
                                 <li>Резка: €2-8/мин</li>
@@ -969,7 +1116,7 @@
                             </ul>
                         </div>
                         <div class="card">
-                            <h4>Дополнительные услуги (10%)</h4>
+                            <h3>Дополнительные услуги (10%)</h3>
                             <ul class="feature-list">
                                 <li>Консультации: €100-150/час</li>
                                 <li>Обучение: €800-3000/курс</li>
@@ -1053,6 +1200,38 @@
                                 <li>Инструменты и оснастка</li>
                             </ul>
                             <p><strong>Средний чек:</strong> €200-1000</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Образование и медицина (15%)</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul class="feature-list">
+                                <li>Анатомические модели для обучения</li>
+                                <li>Хирургические направляющие</li>
+                                <li>Протезы и ортезы</li>
+                                <li>Образовательные материалы</li>
+                            </ul>
+                            <p><strong>Средний чек:</strong> €100-500</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>Мода и развлечения (10%)</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul class="feature-list">
+                                <li>Модные аксессуары и украшения</li>
+                                <li>Театральные реквизиты</li>
+                                <li>Выставочные модели</li>
+                                <li>Персонализированные изделия</li>
+                            </ul>
+                            <p><strong>Средний чек:</strong> €150-400</p>
                         </div>
                     </div>
                 </div>
@@ -1177,8 +1356,8 @@
                         <div>
                             <h4>Показатели (первые доходы)</h4>
                             <ul class="feature-list">
-                                <li>Выручка: €10,000/месяц к концу года</li>
-                                <li>Прибыль: €3,000-4,000/месяц</li>
+                                <li>Выручка: €20,000/месяц к концу года</li>
+                                <li>Прибыль: €8,000-10,000/месяц</li>
                                 <li>Рентабельность: 30-35%</li>
                                 <li>Клиенты: 100+ постоянных</li>
                             </ul>
