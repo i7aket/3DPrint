@@ -332,8 +332,39 @@
             color: white;
         }
 
+        .dark-section .section-title {
+            color: white;
+        }
+
         .dark-section .section-title::after {
             background: #007AFF;
+        }
+
+        .dark-section .card {
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .dark-section .card h3 {
+            color: #007AFF;
+        }
+
+        .dark-section .card h4 {
+            color: #ffffff;
+        }
+
+        .dark-section .accordion-header {
+            background: #333333;
+            color: white;
+        }
+
+        .dark-section .accordion-content {
+            background: #2a2a2a;
+            color: white;
+        }
+
+        .dark-section .feature-list li {
+            color: white;
         }
 
         /* Footer */
@@ -399,7 +430,7 @@
                         </div>
                         <div style="display: flex; justify-content: space-between; margin: 15px 0;">
                             <span>Выручка годы 1-2:</span>
-                            <span class="amount">€0 (раскрутка)</span>
+                            <span class="amount">€0 (раскрутка, покупка новых принтеров, переезд)</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin: 15px 0;">
                             <span>Выручка год 3:</span>
@@ -408,10 +439,6 @@
                         <div style="display: flex; justify-content: space-between; margin: 15px 0;">
                             <span>Выручка год 5:</span>
                             <span class="amount">€600,000+</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin: 15px 0;">
-                            <span>Окупаемость:</span>
-                            <span class="amount">36 месяцев</span>
                         </div>
                     </div>
                 </div>
@@ -426,7 +453,7 @@
             
             <div class="accordion">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>🖨️ 3D-принтеры (€3,648)</span>
+                    <span>🖨️ 3D-принтеры (€3,347)</span>
                     <span>▼</span>
                 </div>
                 <div class="accordion-content">
@@ -441,22 +468,16 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Bambu Lab X1C + AMS 2 Pro (x2)</td>
+                                <td>Bambu Lab X1C + AMS 2 Pro</td>
                                 <td>FDM с 16-цветной печатью</td>
-                                <td class="amount">€2,498</td>
+                                <td class="amount">€1,249</td>
                                 <td>Многоцветная печать, высокая точность</td>
                             </tr>
                             <tr>
-                                <td>ANYCUBIC Photon M3 Max</td>
+                                <td>ANYCUBIC Photon M3 Max (x2)</td>
                                 <td>SLA высокой точности</td>
-                                <td class="amount">€1,049</td>
+                                <td class="amount">€2,098</td>
                                 <td>Ювелирка, детализированные модели</td>
-                            </tr>
-                            <tr>
-                                <td>Резерв на расширение</td>
-                                <td>-</td>
-                                <td class="amount">€101</td>
-                                <td>Доп. принтеры при росте</td>
                             </tr>
                         </tbody>
                     </table>
@@ -476,23 +497,68 @@
                     <span>▼</span>
                 </div>
                 <div class="accordion-content">
+                    <h4>🔥 Основное лазерное оборудование</h4>
+                    <table class="financial-table">
+                        <thead>
+                            <tr>
+                                <th>Оборудование</th>
+                                <th>Характеристики</th>
+                                <th>Цена</th>
+                                <th>Применение</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Лазерный гравер 20W</td>
+                                <td>400x400мм, точность 0.1мм</td>
+                                <td class="amount">€1,200</td>
+                                <td>Гравировка дерева, акрила</td>
+                            </tr>
+                            <tr>
+                                <td>Поворотная ось (Rotary)</td>
+                                <td>Для цилиндрических объектов</td>
+                                <td class="amount">€200</td>
+                                <td>Гравировка стаканов, бутылок</td>
+                            </tr>
+                            <tr>
+                                <td>Аир-ассист</td>
+                                <td>Подача сжатого воздуха</td>
+                                <td class="amount">€150</td>
+                                <td>Улучшение качества резки</td>
+                            </tr>
+                            <tr>
+                                <td>Вытяжка и фильтрация</td>
+                                <td>Система очистки воздуха</td>
+                                <td class="amount">€300</td>
+                                <td>Безопасность работы</td>
+                            </tr>
+                            <tr>
+                                <td>Расходные материалы</td>
+                                <td>Линзы, зеркала, материалы</td>
+                                <td class="amount">€150</td>
+                                <td>Запасные части и расходники</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>💼 Дополнительные услуги</h4>
                     <div class="grid grid-2">
                         <div>
-                            <h4>Лазерный гравер/резак</h4>
-                            <ul class="feature-list">
-                                <li>Мощность: 10-20W</li>
-                                <li>Рабочая область: 400x400 мм</li>
-                                <li>Материалы: дерево, акрил, кожа, ткань</li>
-                                <li>Точность: 0.1 мм</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4>Дополнительные услуги</h4>
+                            <h5>Гравировка и резка</h5>
                             <ul class="feature-list">
                                 <li>Гравировка логотипов</li>
                                 <li>Резка рекламных материалов</li>
                                 <li>Персонализация изделий</li>
                                 <li>Прототипирование корпусов</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>Материалы</h5>
+                            <ul class="feature-list">
+                                <li>Дерево (3-10мм)</li>
+                                <li>Акрил (3-6мм)</li>
+                                <li>Кожа и ткань</li>
+                                <li>Картон и бумага</li>
                             </ul>
                         </div>
                     </div>
@@ -501,7 +567,7 @@
 
             <div class="accordion">
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>🔧 Пост-обработка (€3,000)</span>
+                    <span>🔧 Пост-обработка (€2,950)</span>
                     <span>▼</span>
                 </div>
                 <div class="accordion-content">
@@ -559,15 +625,21 @@
                         <tbody>
                             <tr>
                                 <td>3D-принтеры</td>
-                                <td class="amount">€3,648</td>
-                                <td>5.6%</td>
-                                <td>2x Bambu X1C + AMS, 1x ANYCUBIC M3 Max</td>
+                                <td class="amount">€3,347</td>
+                                <td>5.1%</td>
+                                <td>1x Bambu X1C + AMS, 2x ANYCUBIC M3 Max</td>
                             </tr>
                             <tr>
                                 <td>Лазерное оборудование</td>
                                 <td class="amount">€2,000</td>
                                 <td>3.1%</td>
-                                <td>Гравер/резак 10-20W</td>
+                                <td>20W гравер + аксессуары</td>
+                            </tr>
+                            <tr>
+                                <td>Пост-обработка</td>
+                                <td class="amount">€2,950</td>
+                                <td>4.5%</td>
+                                <td>Оборудование для отделки</td>
                             </tr>
                             <tr>
                                 <td>Филаменты и смолы</td>
@@ -583,9 +655,9 @@
                             </tr>
                             <tr>
                                 <td>Аренда и депозит</td>
-                                <td class="amount">€3,000</td>
-                                <td>4.6%</td>
-                                <td>30 м², первый месяц + депозит</td>
+                                <td class="amount">€18,000</td>
+                                <td>27.7%</td>
+                                <td>30 м², 12 месяцев аренды + депозит</td>
                             </tr>
                             <tr>
                                 <td>Маркетинг и продвижение</td>
@@ -595,14 +667,14 @@
                             </tr>
                             <tr>
                                 <td>Операционные расходы</td>
-                                <td class="amount">€24,000</td>
-                                <td>36.9%</td>
-                                <td>Аренда, коммунальные, страховка на 2 года</td>
+                                <td class="amount">€12,000</td>
+                                <td>18.5%</td>
+                                <td>Коммунальные, страховка на 1 год</td>
                             </tr>
                             <tr>
                                 <td>Резерв на непредвиденные</td>
-                                <td class="amount">€10,596</td>
-                                <td>16.3%</td>
+                                <td class="amount">€16,947</td>
+                                <td>26.1%</td>
                                 <td>Резерв на случай превышения бюджета</td>
                             </tr>
                         </tbody>
