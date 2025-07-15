@@ -503,31 +503,6 @@
             border-radius: 10px;
             transition: width 1s ease;
         }
-        
-        /* Progress Bar Width Classes */
-        .progress-20 { width: 20%; }
-        .progress-40 { width: 40%; }
-        .progress-60 { width: 60%; }
-        .progress-80 { width: 80%; }
-        .progress-100 { width: 100%; }
-        
-        /* Additional Text Size Classes */
-        .text-4xl { font-size: var(--font-size-4xl) !important; }
-        .text-xl { font-size: var(--font-size-xl) !important; }
-        
-        /* Section Backgrounds */
-        .section-gradient {
-            background: var(--gradient-primary);
-            color: var(--color-text-white);
-        }
-        
-        /* Hero Card Special */
-        .hero-card-bordered {
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        /* Text Opacity */
-        .text-opacity-95 { opacity: 0.95; }
 
         /* Lists */
         .feature-list {
@@ -866,13 +841,13 @@
     </section>
 
     <!-- Motivation Summary -->
-    <section id="motivation" class="section section-gradient">
+    <section id="motivation" class="section" style="background: var(--gradient-primary); color: white;">
         <div class="container">
             <h2 class="section-title text-white mb-xl">💎 Почему это сработает</h2>
             
             <div class="grid grid-2 motivation-grid">
                 <div class="card card-glass">
-                    <h3 class="font-bold mb-md text-4xl">🚀 Финансовая привлекательность</h3>
+                    <h3 class="font-bold mb-md" style="font-size: var(--font-size-4xl);">🚀 Финансовая привлекательность</h3>
                     <div class="stat-card">
                         <span class="big-number">€50,000</span>
                         <p class="big-number-label">Стартовые инвестиции</p>
@@ -882,13 +857,13 @@
                         <p class="big-number-label">Выручка к 5-му году</p>
                     </div>
                     <div class="stat-card">
-                        <span class="big-number text-4xl">750% ROI</span>
+                        <span class="big-number" style="font-size: var(--font-size-4xl);">750% ROI</span>
                         <p class="big-number-label">Возврат инвестиций за 5 лет</p>
                     </div>
                 </div>
 
                 <div class="card card-glass">
-                    <h3 class="font-bold mb-md text-4xl">⚡ Уникальная модель</h3>
+                    <h3 class="font-bold mb-md" style="font-size: var(--font-size-4xl);">⚡ Уникальная модель</h3>
                     <ul class="unique-features">
                         <li><strong>3D + Лазер</strong> - единственная в Берлине комбинация</li>
                         <li><strong>16-цветная печать</strong> - профессиональное качество</li>
@@ -918,9 +893,9 @@
                 </div>
             </div>
 
-            <div class="hero-card text-center p-xl hero-card-bordered">
-                <h3 class="text-accent mb-md text-4xl">🔥 Ключевой фактор успеха</h3>
-                <p class="mb-md text-xl text-opacity-95">
+            <div class="hero-card text-center p-xl" style="border: 2px solid rgba(255, 255, 255, 0.3);">
+                <h3 class="text-accent mb-md" style="font-size: var(--font-size-4xl);">🔥 Ключевой фактор успеха</h3>
+                <p class="mb-md" style="font-size: var(--font-size-xl); opacity: 0.95;">
                     <strong>Фокус на прибыльность, а не оборот.</strong><br>
                     Консервативные прогнозы с реальными сроками окупаемости делают проект надежной инвестицией в высокотехнологичную нишу.
                 </p>
@@ -1799,7 +1774,7 @@
                         <li>Планирование производства</li>
                     </ul>
                     <div class="progress-bar">
-                        <div class="progress-fill progress-60"></div>
+                        <div class="progress-fill" style="width: 60%"></div>
                     </div>
                     <p class="text-muted"><small>ROI: 6-12 месяцев</small></p>
                 </div>
@@ -1813,7 +1788,7 @@
                         <li>Аналитика производительности</li>
                     </ul>
                     <div class="progress-bar">
-                        <div class="progress-fill progress-40"></div>
+                        <div class="progress-fill" style="width: 40%"></div>
                     </div>
                     <p class="text-muted"><small>Экономия: 30% времени на мониторинг</small></p>
                 </div>
@@ -1827,7 +1802,7 @@
                         <li>Статистика брака</li>
                     </ul>
                     <div class="progress-bar">
-                        <div class="progress-fill progress-20"></div>
+                        <div class="progress-fill" style="width: 20%"></div>
                     </div>
                     <p class="text-muted"><small>Сокращение брака: 50-70%</small></p>
                 </div>
