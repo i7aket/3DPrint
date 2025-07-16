@@ -431,6 +431,24 @@
             box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
         }
 
+        /* Timeline final item - stop line */
+        .timeline {
+            position: relative;
+            overflow: visible;
+        }
+        
+        .timeline-item-final::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -50px;
+            width: 2px;
+            height: 100vh;
+            background: var(--color-bg-primary);
+            z-index: 2;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -443,17 +461,102 @@
             }
         }
 
-        /* Responsive */
+        /* Responsive - Tablet */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .hero h1 {
+                font-size: clamp(2.5rem, 6vw, 4rem);
+            }
+            
+            .case-card {
+                flex-direction: column !important;
+                text-align: center;
+            }
+            
+            .case-card > div:first-child {
+                order: 2;
+            }
+            
+            .case-card > div:last-child {
+                order: 1;
+                flex: 1 1 auto;
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .investment-breakdown {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item-final::after {
+                left: 30px;
+            }
+        }
+
+        /* Responsive - Mobile */
         @media (max-width: 768px) {
+            /* Navigation */
             .nav-links {
                 display: none;
             }
-
+            
+            /* Hero section */
+            .hero {
+                padding: var(--spacing-xl) 0;
+                min-height: auto;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: var(--spacing-sm);
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+            
+            /* Story sections */
             .story-content,
             .timeline-item {
                 grid-template-columns: 1fr;
             }
-
+            
+            .story-section {
+                padding: var(--spacing-xl) 0;
+            }
+            
+            /* Chapter 3 - Case cards */
+            .case-card {
+                padding: var(--spacing-md);
+                gap: var(--spacing-md);
+            }
+            
+            .case-card img {
+                height: auto !important;
+                max-height: 200px;
+            }
+            
+            /* Chapter 5 - Problem cards */
+            div[style*="display: flex; align-items: center; background"] {
+                flex-direction: column !important;
+                text-align: center;
+                padding: var(--spacing-md) !important;
+            }
+            
+            div[style*="flex: 0 0 80px"] {
+                margin-bottom: var(--spacing-sm);
+            }
+            
+            /* Timeline */
             .timeline::before {
                 left: 30px;
             }
@@ -461,14 +564,83 @@
             .timeline-content {
                 width: calc(100% - 60px);
                 margin-left: 60px;
+                padding: var(--spacing-md);
             }
 
             .timeline-date {
                 left: 30px;
+                font-size: var(--font-size-sm);
+                padding: var(--spacing-xs) var(--spacing-sm);
             }
 
             .timeline-item:nth-child(even) {
                 flex-direction: row;
+            }
+            
+            /* Vision points */
+            .vision-points {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+                gap: var(--spacing-md) !important;
+            }
+            
+            /* Feature cards */
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card {
+                padding: var(--spacing-md);
+            }
+            
+            /* Investment cards */
+            .card {
+                padding: var(--spacing-md);
+            }
+            
+            /* Typography adjustments */
+            h2 {
+                font-size: var(--font-size-3xl);
+            }
+            
+            h3 {
+                font-size: var(--font-size-2xl);
+            }
+            
+            h4 {
+                font-size: var(--font-size-xl);
+            }
+            
+            /* CTA section */
+            .cta-section {
+                padding: var(--spacing-xl) 0;
+            }
+            
+            .cta-button {
+                display: block;
+                width: 90%;
+                max-width: 300px;
+                margin: var(--spacing-lg) auto 0;
+            }
+        }
+        
+        /* Extra small mobile */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .stat-number {
+                font-size: var(--font-size-3xl);
+            }
+            
+            /* Hide images in photo grids on very small screens */
+            div[style*="display: grid; grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Stack list items vertically */
+            ul[style*="display: flex; flex-wrap: wrap"] li {
+                flex: 1 1 100% !important;
             }
         }
     </style>
@@ -503,7 +675,7 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">400+</div>
-                        <div>Принтеров к 2030</div>
+                        <div>Цель принтеров к 2030</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">€1M+</div>
@@ -616,7 +788,10 @@
             <!-- Case 2: Reversed layout -->
             <div class="case-card" style="display: flex; align-items: center; gap: 40px; margin-bottom: 40px; background: var(--color-bg-white); padding: 40px; border-radius: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.08);">
                 <div style="flex: 0 0 400px;">
-                    <img src="photo/Signs_privateProperty.webp" alt="Таблички для управляющей компании" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <img src="photo/Signs_privateProperty.webp" alt="Таблички для управляющей компании" style="width: 100%; height: 145px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <img src="photo/bird_fider.webp" alt="Кормушка для птиц" style="width: 100%; height: 145px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    </div>
                 </div>
                 <div style="flex: 1;">
                     <h4 style="color: var(--color-primary); margin-bottom: 20px; font-size: 1.5rem;">Кейс 2: Управляющая компания</h4>
@@ -644,10 +819,16 @@
                         <li>Редкие части уже не выпускаются</li>
                         <li>Сроки поставки оригинала - 2-4 недели</li>
                     </ul>
+                    <p style="margin-bottom: 15px;"><strong>Особенно много заказчиков среди владельцев ретро автомобилей</strong> - Берлин является лидером по количеству ретро автомобилей в Европе, и их владельцы готовы платить хорошие деньги за качественные запчасти.</p>
                     <p><strong>Решение:</strong> 3D-печать детали за 2-24 часа по цене 10-20% от оригинала</p>
                 </div>
                 <div style="flex: 0 0 400px;">
-                    <img src="photo/bird_fider.webp" alt="Пример автомобильных деталей" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px; box-shadow: 0 8px 16px rgba(0,0,0,0.1);">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <img src="photo/car_spare_part_1.webp" alt="Автозапчасть 1" style="width: 100%; height: 145px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <img src="photo/car_spare_part_2.jpg" alt="Автозапчасть 2" style="width: 100%; height: 145px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <img src="photo/car_spare_part_3.jpg" alt="Автозапчасть 3" style="width: 100%; height: 145px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <img src="photo/car_spare_part_4.webp" alt="Автозапчасть 4" style="width: 100%; height: 145px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    </div>
                 </div>
             </div>
             
@@ -688,32 +869,26 @@
                     <div style="text-align: center;">
                         <div style="font-size: 3rem; margin-bottom: 15px;">🏭</div>
                         <h4>Локальное производство</h4>
-                        <p>Берлин - город стартапов Европы</p>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 3rem; margin-bottom: 15px;">⚡</div>
                         <h4>Скорость выполнения</h4>
-                        <p>24-48 часов против 2-4 недель</p>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 3rem; margin-bottom: 15px;">💰</div>
                         <h4>Цена</h4>
-                        <p>10-30% от стоимости оригинала</p>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 3rem; margin-bottom: 15px;">✨</div>
                         <h4>Кастомизация</h4>
-                        <p>Любые изменения без дополнительных затрат</p>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 3rem; margin-bottom: 15px;">🌍</div>
                         <h4>Экологичность</h4>
-                        <p>Минимум отходов, переработка материалов</p>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 3rem; margin-bottom: 15px;">🔧</div>
                         <h4>Качество</h4>
-                        <p>Профессиональное оборудование и опыт</p>
                     </div>
                 </div>
             </div>
@@ -728,19 +903,8 @@
             
             <!-- Three horizontal cards -->
             <div style="display: flex; flex-direction: column; gap: 30px; max-width: 1000px; margin: 0 auto;">
-                <!-- Card 1: Power Problem -->
+                <!-- Card 1: Space Problem (moved up) -->
                 <div style="display: flex; align-items: center; background: var(--color-bg-white); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); gap: 30px;">
-                    <div style="flex: 0 0 80px;">
-                        <div style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white;">⚙️</div>
-                    </div>
-                    <div style="flex: 1;">
-                        <h4 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--color-primary);">Проблема мощностей</h4>
-                        <p style="line-height: 1.8;">Нужно докупить 5-10 принтеров, чтобы как только получим заказ, могли его очень быстро выполнить. Принтеры часто засоряются и требуют обслуживания - лучше иметь запас прочности.</p>
-                    </div>
-                </div>
-                
-                <!-- Card 2: Space Problem -->
-                <div style="display: flex; align-items: center; background: var(--color-bg-light); border-radius: 20px; padding: 40px; gap: 30px;">
                     <div style="flex: 0 0 80px;">
                         <div style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white;">🏠</div>
                     </div>
@@ -753,6 +917,17 @@
                             <li style="flex: 1 1 45%;">• Ограниченное пространство 3м²</li>
                             <li style="flex: 1 1 45%;">• Невозможно расширение</li>
                         </ul>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Power Problem -->
+                <div style="display: flex; align-items: center; background: var(--color-bg-light); border-radius: 20px; padding: 40px; gap: 30px;">
+                    <div style="flex: 0 0 80px;">
+                        <div style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white;">⚙️</div>
+                    </div>
+                    <div style="flex: 1;">
+                        <h4 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--color-primary);">Проблема мощностей</h4>
+                        <p style="line-height: 1.8;">Сейчас есть всего 1 принтер, на котором печатаются украшения (одно украшение печатается от 5 до 20 часов). Нужно докупить 5-10 принтеров для бизнеса 3D-печати, чтобы быстро выполнять заказы. Также необходимо место для экспериментов с новыми материалами и технологиями.</p>
                     </div>
                 </div>
                 
@@ -782,7 +957,7 @@
             <h2 class="text-center" style="margin-bottom: 60px;">Глава 6: Инвестиционный план</h2>
             
             <div style="max-width: 1000px; margin: 0 auto;">
-                <h3 class="text-center" style="margin-bottom: 40px;">Требуемые инвестиции для старта: €49,000</h3>
+                <h3 class="text-center" style="margin-bottom: 40px;">Требуемые инвестиции для старта: €88,400</h3>
                 
                 <div class="investment-breakdown" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                     <div class="card">
@@ -828,7 +1003,7 @@
                     </div>
                     
                     <div class="card">
-                        <h4>Помещение и операционные (€24,000)</h4>
+                        <h4>Помещение и операционные (€39,500)</h4>
                         <ul style="list-style: none; padding: 0;">
                             <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
                                 <div style="display: flex; justify-content: space-between;">
@@ -868,6 +1043,30 @@
                             </li>
                         </ul>
                     </div>
+                    
+                    <div class="card">
+                        <h4>Бизнес-расходы (€23,900)</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Регистрация компании в Германии</span>
+                                    <strong>€2,000</strong>
+                                </div>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Бухгалтерия (12 месяцев)</span>
+                                    <strong>€4,800</strong>
+                                </div>
+                            </li>
+                            <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Зарплата сотрудника магазина (первый год)</span>
+                                    <strong>€17,100</strong>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 
                 <div class="roi-projection" style="margin-top: 60px; text-align: center; background: var(--gradient-primary); color: white; padding: 40px; border-radius: 20px;">
@@ -876,7 +1075,7 @@
                         Ищу инвестора, который понимает, что вложение начнёт окупаться через 2+ лет, так как все деньги на старте нужно вкладывать в развитие проекта: рекламу, больше принтеров, больше мощностей.
                     </p>
                     <p style="font-size: 1.2rem; margin-bottom: 30px; line-height: 1.6;">
-                        Основной упор в первые 2-3 года - это захват рынка и расширение. Когда дорастём до снятия очень большого помещения сразу с магазином 3D-вещей и прозрачными стенами, где видна печать на 200+ принтерах - тогда можно говорить о прибыли.
+                        Основной упор в первые 2 года - это захват рынка и расширение производственных мощностей. Когда дорастём до снятия очень большого помещения сразу с магазином 3D-вещей и прозрачными стенами, где видна печать на 200+ принтерах - тогда можно говорить о прибыли.
                     </p>
                 </div>
             </div>
@@ -916,12 +1115,15 @@
                 </div>                
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h4>Этап 3: AI-автоматизация (Первый год)</h4>
-                        <p><strong>Инновация:</strong> Разработка AI-агентов для продаж</p>
+                        <h4>Этап 3: AI и автоматизация производства (Первый год)</h4>
+                        <p><strong>Технологические инновации:</strong></p>
                         <ul style="margin-top: 15px;">
-                            <li>Агент поиска клиентов в соцсетях (LinkedIn, Facebook, Instagram)</li>
-                            <li>Агент персонализации предложений под каждую компанию</li>
-                            <li>Автоматизация первичного контакта</li>
+                            <li><strong>Автоматизация печати:</strong> Система автоматической смены Table Plate для непрерывного производства 24/7</li>
+                            <li>Робот-манипулятор для снятия готовых изделий и запуска новых заданий</li>
+                            <li><strong>AI-агенты для продаж:</strong></li>
+                            <li style="margin-left: 20px;">• Поиск клиентов в соцсетях (LinkedIn, Facebook, Instagram)</li>
+                            <li style="margin-left: 20px;">• Персонализация предложений под каждую компанию</li>
+                            <li style="margin-left: 20px;">• Автоматизация первичного контакта</li>
                         </ul>
                     </div>
                     <div class="timeline-date">12 мес</div>
@@ -946,7 +1148,7 @@
                         <h4>Этап 5: Вторая локация (24-36 месяц)</h4>
                         <p><strong>Расширение:</strong> Открытие производственного центра</p>
                         <ul style="margin-top: 15px;">
-                            <li>Помещение 200м² с разделением по технологиям</li>
+                            <li>Помещение 200м²+ с разделением по технологиям</li>
                             <li>Отдельные комнаты: филаменты, смолы, лазер, металл</li>
                             <li>Загрузка 70-80% мощностей</li>
                         </ul>
@@ -967,7 +1169,7 @@
                     <div class="timeline-date">Год 5</div>
                 </div>
                 
-                <div class="timeline-item">
+                <div class="timeline-item timeline-item-final">
                     <div class="timeline-content">
                         <h4>Этап 7: Фокус на корпоративных клиентах</h4>
                         <p><strong>Финальная стратегия:</strong> Переход к работе исключительно с крупными заказчиками</p>
